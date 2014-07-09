@@ -1,5 +1,3 @@
-
-
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -25,7 +23,6 @@ var server = http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
 
-//configuração para o servidor aceitar requisições 'cors'
 app.all('/*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -64,8 +61,7 @@ mongoose.connect('mongodb://localhost/SocieGroup');
 
 //coonfigurando socket.io
 var io = sio.listen(server);
-
-io.set('log level', 1);
+    io.set('log level', 1);
 
 var mensagens = [];
 
@@ -81,7 +77,6 @@ listarNovoPrj.on('connection', function(socket){
 
     })
 });
-
 
 io.sockets.on('connection', function(socket){
 
@@ -102,7 +97,6 @@ io.sockets.on('connection', function(socket){
     io.sockets.emit('get feeds', mensagens);
 
     });
-
 
 app.get('/mensagens', function(req, res){
     res.json(mensagens);
