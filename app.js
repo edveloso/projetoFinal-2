@@ -48,7 +48,6 @@ app.get('/', function(req, res){
 	});
 });
 
-
 // rotas divididas em camadas para facilitar desenvolvimento e manutenção.
 require('./backend/rotas/RotasLogin')(app);
 require('./backend/rotas/RotasUsuario')(app);
