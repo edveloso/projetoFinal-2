@@ -2,14 +2,12 @@ redeSocialApp.controller('controleArquivo', function($scope, serviceArquivo){
 
     var prj = $scope.projetoAtual.titulo;
     var dono = $scope.projetoAtual.idUsuario;
-
     var projeto = {idDono: dono, idPrj: prj};
 
      serviceArquivo.listarArquivos(projeto, function(data){
          $scope.listaArquivos = data;
          console.log("lst de arquivos " + data);
    });
-
 
 });
 
@@ -63,11 +61,9 @@ var ModalInstanceCtrlExibirArquivos = function ($scope, $modalInstance,  $route,
     $scope.downloadArquivo = function(arquivo){
 
         var lista = $scope.listaArquivos;
-
         var idPrj = $scope.projetoAtual._id;
         var idDono = $scope.projetoAtual.idUsuario;
         var nomeArquivo = lista[arquivo];
-
         var download = {prj: idPrj, dono: idDono, nomeArquivo: nomeArquivo};
 
         $http.post('/download/arquivo', download).success(function(data){
