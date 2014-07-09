@@ -1,5 +1,4 @@
 
-//controle básico apenas para listar os projetos de um usuario
 redeSocialApp.controller('controleProjetoListar', function($scope, serviceProjeto, servicePerfil, $modal, $cookieStore, $log, $location){
 
     var usuarioAtual = servicePerfil.getUsuarioAtual();
@@ -28,7 +27,6 @@ redeSocialApp.controller('controleProjetoListar', function($scope, serviceProjet
             $location.path("/projeto");
     };
 
-    //modal cadastro projeto
     $scope.open = function () {
 
         var modalInstance = $modal.open({
@@ -45,7 +43,6 @@ redeSocialApp.controller('controleProjetoListar', function($scope, serviceProjet
 
 });
 
-//controle principal do projeto
 redeSocialApp.controller('controleProjeto', function($scope, serviceProjeto, serviceComentario, $cookieStore, $log, $modal){
 
     $scope.menuProjeto= true;
@@ -53,8 +50,6 @@ redeSocialApp.controller('controleProjeto', function($scope, serviceProjeto, ser
     $scope.usuarioDaSessao = $cookieStore.get('logado');
     var idProjeto = $cookieStore.get('projetoAtual');
 
-
-    //definição do modelo
     $scope.projeto = {titulo: '',
         descricao: '',
         time: '',
@@ -148,7 +143,6 @@ var ModalInstanceCtrlProjeto = function ($scope, $modalInstance, $route, $log, s
             sobrenome: $cookieStore.get('logado').sobrenome
         }
      };
-
 
     $scope.salvarProjeto = function(){
         var prj = $scope.projeto;
