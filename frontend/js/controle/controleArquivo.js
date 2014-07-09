@@ -11,7 +11,6 @@ redeSocialApp.controller('controleArquivo', function($scope, serviceArquivo){
 
 });
 
-
 var ModalInstanceCtrlArquivo = function ($scope, $modalInstance, $upload, $route, titulo) {
 
     $scope.ok = function () {
