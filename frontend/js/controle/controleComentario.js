@@ -2,13 +2,9 @@
 redeSocialApp.controller('controleComentario', function($scope, $location, serviceProjeto, $rootScope, $modal, serviceComentario, serviceLogin, servicePerfil, $cookieStore, $log){
 
     var socket = io.connect('http://localhost:3001');
-
-
     $scope.comentario = {id: '', texto: '', nomeUsuario:'', sobrenomeUsuario: '', img:'', idPerfil:'', time:'', anexo: ''};
     $scope.selected = '';
 
-
-    //inserir comentario
     $scope.enviarComentario = function(){
         $scope.usuarioDaSessao = $cookieStore.get('logado');
 
@@ -18,7 +14,6 @@ redeSocialApp.controller('controleComentario', function($scope, $location, servi
         recado.img = $scope.usuarioDaSessao.img;
         recado.idPerfil = $scope.usuarioDaSessao._id;
         recado.anexo = $scope.selected;
-
         var id = $scope.perfilAtual._id;
 
         serviceComentario.salvarComentario(id, recado, function(data){
@@ -28,7 +23,6 @@ redeSocialApp.controller('controleComentario', function($scope, $location, servi
         });
     };
 
-    //ver pagina de outro usuario
     $scope.visitarPerfil = function(usuario){
 
        if($location.path()==='/projeto'){
@@ -41,8 +35,6 @@ redeSocialApp.controller('controleComentario', function($scope, $location, servi
        }
     };
 
-
-    //buscar comentários da página de um usuario:
     var listarComentarios = function(){
 
         if($scope.perfilAtual === undefined){
@@ -100,8 +92,6 @@ var ModalInstanceCtrlAnexarArquivo = function ($scope, $location, $modalInstance
         $modalInstance.dismiss('cancel');
     };
 
-   // var usuario = $cookieStore.get('logado');
-
     $scope.onFileSelect = function($files) {
 
         for (var i = 0; i < $files.length; i++) {
@@ -117,9 +107,7 @@ var ModalInstanceCtrlAnexarArquivo = function ($scope, $location, $modalInstance
                     $scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                 }).success(function(data, status, headers, config){
                     $scope.selected.item = data.nome;
-
-
-
+                    
                 });
         }
 
