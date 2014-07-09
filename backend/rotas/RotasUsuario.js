@@ -3,6 +3,7 @@ module.exports = function(app){
     var usuarioCtrl = require('../controllers/ControleUsuario');
 
     app.post('/newUser', usuarioCtrl.insert, function(req, res){
+        
     });
 
     app.get('/usuario/:u', usuarioCtrl.getById, function(req, res){
@@ -50,8 +51,5 @@ module.exports = function(app){
     app.post('/remover', usuarioCtrl.remove, function(req, res){
 
     });
-
-
-
 
 };
