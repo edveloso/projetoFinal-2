@@ -195,7 +195,6 @@ redeSocialApp.controller('controlePerfil', function($scope, serviceSocketIo, ser
 
 var ModalInstanceCtrlUsuario = function ($scope, $modalInstance, $cookieStore, serviceComentario, $upload, $route, servicePerfil) {
 
-
     $scope.ok = function () {
         $modalInstance.close();
         $route.reload();
@@ -230,10 +229,9 @@ var ModalInstanceCtrlUsuario = function ($scope, $modalInstance, $cookieStore, s
 
                     });
 
-                });
-        }
+             });
+         }
 
     }
-
-
+ 
 };
